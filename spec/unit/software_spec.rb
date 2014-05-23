@@ -67,7 +67,7 @@ describe Omnibus::Software do
 
       it "prepends multiple paths to PATH" do
         expect(software.prepend_path("c:/foo/bar", "c:/foo/baz"))
-        .to eq("c:/foo/bar;c:/foo/baz;c:/Ruby999/bin;c:/Windows/system32;c:/Windows;c:/Windows/System32/Wbem")
+          .to eq("c:/foo/bar;c:/foo/baz;c:/Ruby999/bin;c:/Windows/system32;c:/Windows;c:/Windows/System32/Wbem")
       end
     end
   end
