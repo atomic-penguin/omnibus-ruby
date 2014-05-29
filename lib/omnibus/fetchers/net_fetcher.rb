@@ -198,9 +198,11 @@ module Omnibus
 
     def extract_cmd
       if project_file.end_with?('.gz') || project_file.end_with?('.tgz')
-        "gzip -dc  #{project_file} | ( cd #{source_dir} && tar -xf - )"
+        "cd #{source_dir} && tar zxf #{project_file}"
+        # "gzip -dc  #{project_file} | ( cd #{source_dir} && tar -xf - )"
       elsif project_file.end_with?('.bz2')
-        "bzip2 -dc  #{project_file} | ( cd #{source_dir} && tar -xf - )"
+        "cd #{source_dir} && tar jxf #{project_file}"
+        # "bzip2 -dc  #{project_file} | ( cd #{source_dir} && tar -xf - )"
       elsif project_file.end_with?('.7z')
         "7z.exe x #{project_file} -o#{source_dir} -r -y"
       elsif project_file.end_with?('.zip')
